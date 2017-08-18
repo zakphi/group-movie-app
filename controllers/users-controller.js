@@ -10,14 +10,16 @@ usersController.create = (req, res) => {
     username: req.body.username,
     email: req.body.email,
     password_digest: hash,
-  }).then(user => {
+  })
+  .then(user => {
     req.login(user, (err) => {
       if (err) return next(err);
       res.json({
         message: 'ok',
         user: user,
         auth: true,
-    });
+      });
+    })
   }).catch(err => {
     console.log(err);
     res.status(500).json({error: err});
