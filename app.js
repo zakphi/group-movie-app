@@ -35,8 +35,8 @@ app.listen(PORT, () => {
 //   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
 // })
 
-// const authRoutes = require('./routes/auth-routes')
-// app.use('/auth', authRoutes)
+const authRoutes = require('./routes/auth-routes')
+app.use('/auth', authRoutes);
 // const movieRoutes = require('./routes/movie-routes')
 // app.use('/movies', movieRoutes)
 
