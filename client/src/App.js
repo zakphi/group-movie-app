@@ -114,6 +114,14 @@ class App extends Component {
       }).catch(err => console.log(err));
   }
 
+    resetMovies() {
+    axios.get('/movies')
+    .then(res => {
+      this.setState({
+        movieData: res.data.data,
+      })
+    }).catch(err => console.log(err));
+  }
   
 
   // RENDER
