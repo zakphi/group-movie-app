@@ -5,3 +5,6 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const passport = require('passport')
+
+const app = express()
+require('dotenv').config()
