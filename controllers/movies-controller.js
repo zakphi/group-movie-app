@@ -35,7 +35,7 @@ moviesController.create = (req, res) => {
     title: req.body.title,
     description: req.body.description,
     genre: req.body.genre
-  })
+  }, req.user.id)
     .then(movie => {
       res.json({
         message: 'movie added successfully',
