@@ -25,6 +25,15 @@ class App extends Component {
     this.logOut = this.logOut.bind(this);
   }
 
+    componentDidMount() {
+    axios.get('/movies')
+    .then(res => {
+      this.setState({
+        movieData: res.data.data,
+      });
+    }).catch(err => console.log(err));
+  }
+
   // PAGINATION
 
   setPage(page) {
@@ -53,6 +62,7 @@ class App extends Component {
     }
   }
 
+
   // AUTH
 
   handleLoginSubmit(e, username, password) {
@@ -68,6 +78,7 @@ class App extends Component {
       });
     }).catch(err => console.log(err));
   }
+
 
   handleRegisterSubmit(e, username, password, email) {
     e.preventDefault();
