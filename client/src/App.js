@@ -34,6 +34,7 @@ class App extends Component {
     }).catch(err => console.log(err));
   }
 
+
   // PAGINATION
 
   setPage(page) {
@@ -69,7 +70,6 @@ class App extends Component {
         break;
     }
   }
-
 
   // AUTH
 
@@ -113,6 +113,8 @@ class App extends Component {
         });
       }).catch(err => console.log(err));
   }
+
+  
 
   // RENDER
 
