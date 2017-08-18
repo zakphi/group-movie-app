@@ -130,6 +130,17 @@ class App extends Component {
     }).catch(err => console.log(err));
   }
 
+  handleMovieEditSubmit(e, title, description, genre) {
+    e.preventDefault();
+    axios.put(`/movies/${this.state.currentMovieId}`, {
+      title, 
+      description,
+      genre,
+    }).then(res => {
+      this.resetMovies();
+    }).catch(err => console.log(err));
+  }
+
   selectEditedMovie(id) {
     this.setState({
       currentMovieId: id,
