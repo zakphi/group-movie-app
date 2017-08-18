@@ -13,13 +13,13 @@ Movie.findById = (id) => {
   `, [id])
 }
 
-Movie.create = (movie) => {
+Movie.create = (movie, userid) => {
   return db.one(`
     INSERT INTO movies
-    (title, description, genre)
-    VALUES ($1, $2, $3)
+    (title, description, genre, user_id)
+    VALUES ($1, $2, $3, $4)
     RETURNING *
-  `, [movie.title, movie.description, movie.genre])
+  `, [movie.title, movie.description, movie.genre, userid])
 }
 
 Movie.update = (movie, id) => {
