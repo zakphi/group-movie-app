@@ -57,6 +57,14 @@ class App extends Component {
         if (!this.state.auth) {
           return <Register handleRegisterSubmit={this.handleRegisterSubmit} />;
         } else return <Home />;
+      case 'movies':
+        return (<MovieList
+          movieData={this.state.movieData}
+          handleMovieSubmit={this.handleMovieSubmit}
+          handleMovieEditSubmit={this.handleMovieEditSubmit}
+          selectEditedMovie={this.selectEditedMovie}
+          currentMovieId={this.state.currentMovieId} />)
+        break;
       default:
         break;
     }
