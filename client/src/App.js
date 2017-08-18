@@ -10,6 +10,8 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
 
+import MovieList from './components/MovieList'
+
 class App extends Component {
   constructor() {
     super();
