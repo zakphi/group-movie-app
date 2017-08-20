@@ -21,7 +21,7 @@ class MovieEditForm extends Component {
 
   render() {
     return (
-      <div className="add">
+      <div className="editbutton">
         <form onSubmit={(e) => this.props.handleMovieEditSubmit(e, this.state.title, this.state.desc, this.state.genre)}>
           <label> Title
             <input type="text" name="title" placeholder="Title" value={this.state.title} onChange={this.handleInputChange} />

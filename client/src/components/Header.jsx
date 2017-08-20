@@ -11,7 +11,7 @@ const Header = (props) => {
                 <li onClick={() => props.setPage('register')}>Register</li>
                 <li onClick={() => props.setPage('user')}>User Dashboard</li>
                 <li onClick={props.logOut}>Log Out</li>
-            </nav>    
+            </nav>
         </header>
     )
 }
