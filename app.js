@@ -40,6 +40,9 @@ app.use('/auth', authRoutes)
 const movieRoutes = require('./routes/movie-routes')
 app.use('/movies', movieRoutes)
 
+const userRoutes=require('./routes/user-routes');
+app.use('/user', userRoutes);
+
 app.use('*', (req, res) => {
   res.status(400).json({
     message: 'Not found!'

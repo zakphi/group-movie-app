@@ -18,4 +18,11 @@ User.create = user => {
   `, [user.username, user.email, user.password_digest]);
 };
 
+User.findUsersMovies = id => {
+  return db.manyOrNone(`
+    SELECT * FROM movies  
+    WHERE user_id = $1
+    `,[id]);
+};
+
 module.exports = User;
