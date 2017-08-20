@@ -3,6 +3,22 @@ const User = require('../models/user.js');
 
 const usersController = {};
 
+usersController.index = (req, res) => {
+  console.log('usersController');
+  User.findUsersMovies(req.user.id)
+  .then(globals => {
+    res.render('auth/user', {
+      currentPage: 'index',
+      message: 'ok',
+      user: req.user,
+      data: movies,
+    });
+  }).catch(err => {
+    console.log(err);
+    res.status(500).json({err:err});
+  });
+}
+
 usersController.create = (req, res) => {
   const salt = bcrypt.genSaltSync();
   const hash = bcrypt.hashSync(req.body.password, salt);
