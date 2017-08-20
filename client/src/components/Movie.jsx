@@ -1,6 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Movie = (props) => {
+class Movie extends Component {
+  constructor(props) {
+    super(props);
+
+    this.editCheck = this.editCheck.bind(this);
+  }
+
+editCheck (){
+                if (!this.props.userState) {
+                return '';
+            } else {
+               return (<span className="edit" onClick={() => this.props.selectEditedMovie(this.props.movie.id)}>Edit</span>);
+            }
+           }
+render() {
   return (
     <div 
       className={`movie ${props.feature === props.movie.id
@@ -17,9 +31,11 @@ const Movie = (props) => {
           className="fa fa-star fa-2x" 
         />*/}
         <button onClick={() => props.featureMovie(props.movie.id)}>favorite</button>
+        {this.editCheck()}
       </div>
     </div>
   )
+}
 }
 
 export default Movie;
