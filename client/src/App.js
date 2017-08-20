@@ -23,7 +23,6 @@ class App extends Component {
     this.state = {
       auth: false,
       user: null,
-      currentPage: 'home',
       currentMovieId: null,
       feature: null,
     }
@@ -103,7 +102,6 @@ class App extends Component {
       this.setState({
         auth: res.data.auth,
         user: res.data.user,
-        currentPage: 'home',
       });
     }).catch(err => console.log(err));
   }
@@ -119,7 +117,6 @@ class App extends Component {
       this.setState({
         auth: res.data.auth,
         user: res.data.user,
-        currentPage: 'home',
       });
     }).catch(err => console.log(err));
   }
@@ -130,7 +127,6 @@ class App extends Component {
         console.log(res);
         this.setState({
           auth: false,
-          currentPage: 'home',
         });
       }).catch(err => console.log(err));
   }
