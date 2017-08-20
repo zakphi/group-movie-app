@@ -20,6 +20,7 @@ class App extends Component {
       user: null,
       currentPage: 'home',
       currentMovieId: null,
+      feature: null,
     }
     this.setPage = this.setPage.bind(this);
     this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
@@ -28,10 +29,10 @@ class App extends Component {
     this.handleMovieSubmit = this.handleMovieSubmit.bind(this);
     this.handleMovieEditSubmit = this.handleMovieEditSubmit.bind(this);
     this.selectEditedMovie = this.selectEditedMovie.bind(this);
+    this.featureMovie = this.featureMovie.bind(this);
   }
 
   componentDidMount() {
-
     axios.get('/movies')
     .then(res => {
       this.setState({
@@ -40,6 +41,12 @@ class App extends Component {
     }).catch(err => console.log(err));
   }
 
+  // featureMovie function 
+  featureMovie(id) {
+    this.setState({
+      feature: id,
+    });
+  }
 
   // PAGINATION
 
@@ -70,7 +77,9 @@ class App extends Component {
           handleMovieSubmit={this.handleMovieSubmit}
           handleMovieEditSubmit={this.handleMovieEditSubmit}
           selectEditedMovie={this.selectEditedMovie}
-          currentMovieId={this.state.currentMovieId} />)
+          currentMovieId={this.state.currentMovieId}
+          featureMovie={this.featureMovie}
+          feature={this.state.feature} />)
         break;
       default:
         break;
