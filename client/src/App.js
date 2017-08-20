@@ -12,6 +12,11 @@ import Register from './components/Register';
 
 import MovieList from './components/MovieList'
 
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom'
+
 class App extends Component {
   constructor() {
     super();
