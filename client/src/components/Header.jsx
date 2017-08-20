@@ -1,16 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 const Header = (props) => {
     return (
         <header>
             <div className="logo">Awesome Movie App</div>
             <nav>
-                <li onClick={() => props.setPage('home')}>Home</li>
-                <li onClick={() => props.setPage('movies')}>Movies</li>
-                <li onClick={() => props.setPage('login')}>Log In</li>
-                <li onClick={() => props.setPage('register')}>Register</li>
-                <li onClick={() => props.setPage('user')}>User Dashboard</li>
-                <li onClick={props.logOut}>Log Out</li>
+                <li><Link to='/'>Home</Link></li>
+                <li><Link to='/movies'>Movies</Link></li>
+                <li><Link to='/login'>Log In</Link></li>
+                <li><Link to='/register'>Register</Link></li>
+                <li>User Dashboard</li>
+                <li onClick={props.logOut}><Link to='/'>Log Out</Link></li>
             </nav>
         </header>
     )
