@@ -26,7 +26,6 @@ class App extends Component {
       currentMovieId: null,
       feature: null,
     }
-    this.setPage = this.setPage.bind(this);
     this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
     this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this);
     this.logOut = this.logOut.bind(this);
@@ -51,45 +50,6 @@ class App extends Component {
       feature: id,
     });
   }
-
-  // PAGINATION
-
-  setPage(page) {
-    console.log('click');
-    this.setState({
-      currentPage: page,
-    })
-  }
-
-  decideWhichPage() {
-    switch(this.state.currentPage) {
-      case 'home':
-        return <Home />;
-        break;
-      case 'login':
-        if (!this.state.auth) {
-          return <Login handleLoginSubmit={this.handleLoginSubmit} />;
-        } else return <Home />;
-        break;
-      case 'register':
-        if (!this.state.auth) {
-          return <Register handleRegisterSubmit={this.handleRegisterSubmit} />;
-        } else return <Home />;
-      case 'movies':
-        return (<MovieList
-          movieData={this.state.movieData}
-          handleMovieSubmit={this.handleMovieSubmit}
-          handleMovieEditSubmit={this.handleMovieEditSubmit}
-          selectEditedMovie={this.selectEditedMovie}
-          currentMovieId={this.state.currentMovieId}
-          featureMovie={this.featureMovie}
-          feature={this.state.feature} />)
-        break;
-      default:
-        break;
-    }
-  }
-
 
   // AUTH
 
@@ -168,17 +128,29 @@ class App extends Component {
       })
     }).catch(err => console.log(err));
   }
-  
+
 
   // RENDER
 
   render() {
     return (
-      <div className="App">
-        <Header setPage={this.setPage} logOut={this.logOut} />
-        {this.decideWhichPage()}
-        <Footer />
-      </div>
+      <Router>
+        <div className="App">
+          <Header logOut={this.logOut} />
+          <Route exact path='/' component={Home} />
+          <Route exact path='/movies' render={() => <MovieList
+            movieData={this.state.movieData}
+            handleMovieSubmit={this.handleMovieSubmit}
+            handleMovieEditSubmit={this.handleMovieEditSubmit}
+            selectEditedMovie={this.selectEditedMovie}
+            currentMovieId={this.state.currentMovieId}
+            featureMovie={this.featureMovie}
+            feature={this.state.feature} />} />
+            <Route exact path='/login' render={() => <Login handleLoginSubmit={this.handleLoginSubmit} />} />
+            <Route exact path='/register' render={() => <Register handleRegisterSubmit={this.handleRegisterSubmit} />} />
+          <Footer />
+        </div>
+      </Router>
     );
   }
 }
