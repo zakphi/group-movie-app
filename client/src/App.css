@@ -22,3 +22,20 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* movies */
+
+.movies {
+  max-width: 70vw;
+  margin: 50px;
+  padding: 50px;
+  border: 1px solid grey;
+  background-color: white;
+}
+.feature {
+  background-color: #F9F7E8;
+}
+
+.fa-star {
+  cursor: pointer;
+}
