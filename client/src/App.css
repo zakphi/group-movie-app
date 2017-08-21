@@ -63,6 +63,7 @@ nav {
 }
 li{
   padding: 20px;
+  display: inline-block;
 }
 li:hover {
   background-color: #bf8040;
