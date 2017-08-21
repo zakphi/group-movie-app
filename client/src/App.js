@@ -53,34 +53,6 @@ class App extends Component {
     });
   }
 
-  decideWhichPage() {
-    switch(this.state.currentPage) {
-      case 'home':
-        return <Home />;
-        break;
-      case 'login':
-        if (!this.state.auth) {
-          return <Login handleLoginSubmit={this.handleLoginSubmit} />;
-        } else return <Home />;
-        break;
-      case 'register':
-        if (!this.state.auth) {
-          return <Register handleRegisterSubmit={this.handleRegisterSubmit} />;
-        } else return <Home />;
-      case 'movies':
-        return (<MovieList
-          userState={this.state.auth}
-          movieData={this.state.movieData}
-          handleMovieSubmit={this.handleMovieSubmit}
-          handleMovieEditSubmit={this.handleMovieEditSubmit}
-          selectEditedMovie={this.selectEditedMovie}
-          currentMovieId={this.state.currentMovieId} />)
-        break;
-      default:
-        break;
-    }
-  }
-
   // AUTH
 
   handleLoginSubmit(e, username, password) {
