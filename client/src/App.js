@@ -14,7 +14,8 @@ import MovieList from './components/MovieList'
 
 import {
   BrowserRouter as Router,
-  Route
+  Route,
+  Redirect
 } from 'react-router-dom'
 
 class App extends Component {
@@ -25,6 +26,7 @@ class App extends Component {
       user: null,
       currentMovieId: null,
       feature: null,
+      redirect: false
     }
     this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
     this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this);
@@ -90,6 +92,7 @@ class App extends Component {
       this.setState({
         auth: res.data.auth,
         user: res.data.user,
+        redirect: true
       });
     }).catch(err => console.log(err));
   }
@@ -105,6 +108,7 @@ class App extends Component {
       this.setState({
         auth: res.data.auth,
         user: res.data.user,
+        redirect: true
       });
     }).catch(err => console.log(err));
   }
@@ -174,8 +178,9 @@ class App extends Component {
             currentMovieId={this.state.currentMovieId}
             featureMovie={this.featureMovie}
             feature={this.state.feature} />} />
-            <Route exact path='/login' render={() => <Login handleLoginSubmit={this.handleLoginSubmit} />} />
-            <Route exact path='/register' render={() => <Register handleRegisterSubmit={this.handleRegisterSubmit} />} />
+          <Route exact path='/login' render={() => <Login handleLoginSubmit={this.handleLoginSubmit} />} />
+          <Route exact path='/register' render={() => <Register handleRegisterSubmit={this.handleRegisterSubmit} />} />
+          {this.state.redirect ? <Redirect push to={'/'} /> : '' }
           <Footer />
         </div>
       </Router>
