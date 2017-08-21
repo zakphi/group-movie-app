@@ -1,6 +1,3 @@
-body{
-/*  border: 2px solid blue;*/
-  }
 .App {
   text-align: center;
 }
@@ -33,14 +30,6 @@ body{
   margin-bottom: 20px;
   background: #c65353;
 }
-/*
-.movies {
-  max-width: 70vw;
-  margin: 50px;
-  padding: 50px;
-  border: 1px solid grey;
-  background-color: white;
-}*/
 .feature {
   background-color: #F9F7E8;
 }
@@ -58,10 +47,6 @@ body{
 header {
   display: flex;
   justify-content: space-between;
-/*  background: #f2f2f2;*/
-}
-footer {
-/*  background: #f2f2f2;*/
 }
 nav {
   display: flex;
