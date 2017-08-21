@@ -140,9 +140,10 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Header logOut={this.logOut} />
+          <Header logOut={this.logOut} userState={this.state.auth} />
           <Route exact path='/' component={Home} />
           <Route exact path='/movies' render={() => <MovieList
+            userState={this.state.auth}
             movieData={this.state.movieData}
             handleMovieSubmit={this.handleMovieSubmit}
             handleMovieEditSubmit={this.handleMovieEditSubmit}
